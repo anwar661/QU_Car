@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Graduation_project</string>
+    <string-array name="Region">
+        <item>Buraydah</item>
+        <item>Unaizah</item>
+        <item>Alrass</item>
+        <item>Qussaim university</item>
+    </string-array>
+
+    <string-array name="StartPoint">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="TimetoGo">
+        <item>7:00</item>
+        <item>8:00</item>
+        <item>9:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>1:00</item>
+        <item>2:00</item>
+        <item>3:00</item>
+    </string-array>
+
+    <string-array name="AccessPoint">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <string-array name="NumberofPassengers">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>
