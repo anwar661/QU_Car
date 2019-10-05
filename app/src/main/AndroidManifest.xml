@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Passenger_Rating"></activity>
+        <activity android:name=".home_page"></activity>
+        <activity android:name=".Cost_calculation" />
+        <activity android:name=".Passenger_Rating" />
         <activity android:name=".Passenger_information" />
         <activity android:name=".Driver_Rating" />
         <activity android:name=".Driver_information" />
