@@ -54,8 +54,6 @@ public class Book_trip extends AppCompatActivity {
     }public void openActivity2(){
         Intent intent = new Intent(this, Trips_Available.class);
         startActivity(intent);
-
-
     }
 }
 

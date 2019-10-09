@@ -15,9 +15,10 @@
         android:layout_marginTop="280dp"
         android:layout_marginLeft="100dp"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/carpooling"
+        app:srcCompat="@drawable/cp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="102dp"
         tools:layout_editor_absoluteY="291dp"
-        tools:srcCompat="@drawable/carpooling" />
+        tools:srcCompat="@drawable/cp" />
+
 </RelativeLayout>

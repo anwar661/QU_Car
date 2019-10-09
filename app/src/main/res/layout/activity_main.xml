@@ -10,26 +10,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="?attr/colorButtonNormal"
         android:onClick="usrLogIn"
         android:text="Log in"
         android:layout_marginTop="19dp"
         android:layout_below="@+id/pwdInp"
+        android:fontFamily="serif"
+        android:background="#B5DCE2"
         android:layout_centerHorizontal="true" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ch"/>
     <EditText
         android:id="@+id/nameInp"
+        android:fontFamily="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="121dp"
+        android:layout_marginTop="321dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/pwdInp"
+        android:fontFamily="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/nameInp"
@@ -38,6 +45,14 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="250dp"
+        app:srcCompat="@drawable/ob" />
 
     <TextView
         android:id="@+id/txtvSignUp"
@@ -46,6 +61,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="97dp"
+        android:fontFamily="serif"
         android:text="Not registered ? Sign up" />
 
 

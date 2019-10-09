@@ -5,19 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Trips_Available">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ch"/>
 
     <TextView
         style="@android:style/Widget.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:fontFamily="serif"
         android:text="Trips Available"
+        android:layout_marginTop="280dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="300dp"
+        android:fontFamily="serif"
         android:text="Name:\ncollege:\nType of car:\n" />
 
     <Button
@@ -25,13 +32,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Request"
-        android:layout_marginTop="100dp"
+        android:fontFamily="serif"
+        android:layout_marginTop="350dp"
+        android:background="#B5DCE2"
         android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="400dp"
+        android:fontFamily="serif"
         android:text="Name:\ncollege:\nType of car:\n" />
 
     <Button
@@ -39,13 +49,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Request"
-        android:layout_marginTop="200dp"
+        android:fontFamily="serif"
+        android:layout_marginTop="450dp"
+        android:background="#B5DCE2"
         android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="500dp"
+        android:fontFamily="serif"
         android:text="Name:\ncollege:\nType of car:\n" />
 
     <Button
@@ -53,7 +66,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Request"
-        android:layout_marginTop="300dp"
+        android:fontFamily="serif"
+        android:background="#B5DCE2"
+        android:layout_marginTop="550dp"
         android:layout_centerHorizontal="true"/>
 
 

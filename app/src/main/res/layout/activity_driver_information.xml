@@ -5,16 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Driver_information">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ch"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Driver information"
-        android:textColor="#000"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
+        android:fontFamily="serif"
+        android:textColor="#807A7A"
+        android:layout_marginTop="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -28,7 +33,7 @@
         android:paddingBottom="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingTop="500dp">
+        android:paddingTop="550dp">
 
         <Button
             android:id="@+id/button4"
@@ -37,7 +42,8 @@
             android:layout_margin="16dp"
             android:layout_weight="1"
             android:text="Chat"
-            android:textColor="#fff"
+            android:fontFamily="serif"
+            android:background="#B5DCE2"
             android:textStyle="bold" />
 
         <Button
@@ -52,7 +58,8 @@
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:text="Call"
-            android:textColor="#fff"
+            android:fontFamily="serif"
+            android:background="#B5DCE2"
             android:textStyle="bold" />
     </LinearLayout>
 

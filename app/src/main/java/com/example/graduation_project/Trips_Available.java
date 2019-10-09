@@ -16,8 +16,6 @@ public class Trips_Available extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = (Button)findViewById(R.id.button1);
-        button = (Button)findViewById(R.id.button2);
-        button = (Button)findViewById(R.id.button3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

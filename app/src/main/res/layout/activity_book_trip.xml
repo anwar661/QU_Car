@@ -1,85 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Book_trip">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ch"/>
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select The Region"
-        android:layout_marginTop="30dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="130dp"/>
 
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Region"
-        android:layout_marginTop="50dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="150dp"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select The Start Point"
-        android:layout_marginTop="130dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="230dp"/>
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Start Point"
-        android:layout_marginTop="150dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="250dp"/>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select The Time to Go"
-        android:layout_marginTop="230dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="330dp"/>
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Time to Go"
-        android:layout_marginTop="250dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="350dp"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select The Access Point"
-        android:layout_marginTop="330dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="430dp"/>
 
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Access Point"
-        android:layout_marginTop="350dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="450dp"/>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select The Number of Passengers"
-        android:layout_marginTop="430dp"/>
+        android:layout_marginTop="530dp"
+        android:fontFamily="serif"
+        android:text="Select The Number of Passengers" />
 
     <Spinner
         android:id="@+id/spinner5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="number of passengers"
-        android:layout_marginTop="450dp"/>
+        android:fontFamily="serif"
+        android:layout_marginTop="550dp"/>
+
     <Button
         android:id="@+id/bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="600dp"
+        android:background="#B5DCE2"
         android:text="Book a Trip"
-        android:layout_marginTop="500dp"
-        android:layout_centerHorizontal="true"/>
+        android:fontFamily="serif"
+        android:textColor="#F2747171" />
 </RelativeLayout>
