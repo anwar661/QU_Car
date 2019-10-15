@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Cost_calculation">
 
-
+    <ImageView
+        android:id="@+id/i1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ch" />
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="530dp"
+        android:fontFamily="serif"
         android:layout_centerHorizontal="true"
+        android:background="#B5DCE2"
         android:text="Calculate cost" />
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="331dp"
-        android:layout_marginRight="331dp"
+        android:layout_marginTop="280dp"
+        android:fontFamily="serif"
         android:text="Start Point" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="312dp"
-        android:layout_marginRight="312dp"
-        android:text="Access Point" />
+        android:fontFamily="serif"
+        android:text="End Point" />
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="206dp"
-        android:layout_marginEnd="251dp"
-        android:layout_marginRight="251dp"
+        android:layout_marginTop="450dp"
+        android:fontFamily="serif"
         android:text="Number of Passengers" />
     <Spinner
         android:id="@+id/spinner1"
@@ -55,9 +52,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="58dp"
+        android:layout_marginTop="300dp"
         android:spinnerMode="dropdown" />
     <Spinner
         android:id="@+id/spinner2"
@@ -67,9 +62,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="131dp"
-        android:layout_marginTop="119dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginTop="370dp"
         android:spinnerMode="dropdown" />
     <Spinner
         android:id="@+id/spinner3"
@@ -79,8 +72,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="202dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="470dp"
         android:spinnerMode="dropdown" />
 </RelativeLayout>

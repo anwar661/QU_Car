@@ -1,9 +1,9 @@
 package com.example.graduation_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Splash_Screen extends AppCompatActivity {
 
@@ -16,7 +16,7 @@ public class Splash_Screen extends AppCompatActivity {
             public void run() {
                 try{
                     sleep(3000);
-                    Intent intent=new Intent(getApplicationContext(),Login.class);
+                    Intent intent=new Intent(getApplicationContext(),Loginn.class);
                     startActivity(intent);
                     finish();
                 }

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Loginn">
+
     <Button
         android:id="@+id/logInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:onClick="usrLogIn"
         android:text="Log in"
         android:layout_marginTop="19dp"
         android:layout_below="@+id/pwdInp"
@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/ch"/>
     <EditText
-        android:id="@+id/nameInp"
+        android:id="@+id/em"
         android:fontFamily="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,38 +31,67 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="321dp"
         android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName" />
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/pwdInp"
         android:fontFamily="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/nameInp"
-        android:layout_below="@+id/nameInp"
+        android:layout_alignStart="@+id/em"
+        android:layout_below="@+id/em"
         android:layout_marginTop="47dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
+
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView3"
         android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_height="380dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="250dp"
-        app:srcCompat="@drawable/ob" />
-
+        android:layout_marginTop="270dp"
+        android:src="@drawable/ob1" />
     <TextView
         android:id="@+id/txtvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="97dp"
+        android:layout_marginBottom="60dp"
         android:fontFamily="serif"
         android:text="Not registered ? Sign up" />
+
+    <TextView
+        android:id="@+id/forg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:background="@null"
+        android:fontFamily="serif"
+        android:onClick="fog"
+        android:text="Forgot your password?" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" >
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="end"/>
+    </androidx.appcompat.widget.Toolbar>
+
 
 
 </RelativeLayout>

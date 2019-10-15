@@ -16,10 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="590dp"
         android:layout_weight="1"
         android:background="#B5DCE2"
-        android:onClick="signUp"
         android:fontFamily="serif"
         android:text="Register" />
 
@@ -29,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="320dp"
         android:ems="11"
         android:inputType="textPersonName" />
     <TextView
@@ -42,13 +41,33 @@
         android:ems="11"
         android:fontFamily="serif"
         android:text="Enter your user name:" />
+
+    <EditText
+        android:id="@+id/em"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="370dp"
+        android:ems="11"
+        android:inputType="textEmailAddress" />
+    <TextView
+        android:id="@+id/txtem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="360dp"
+        android:ems="11"
+        android:fontFamily="serif"
+        android:text="Enter your Email:" />
     <TextView
         android:id="@+id/txtvPwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="420dp"
         android:ems="11"
         android:fontFamily="serif"
         android:text="Enter Your Password:" />
@@ -59,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="430dp"
         android:ems="11"
         android:inputType="textPassword" />
 
@@ -70,9 +89,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="480dp"
         android:ems="11"
-        android:inputType="text|number" />
+        android:inputType="textPhonetic" />
 
     <TextView
         android:id="@+id/txtvidnum"
@@ -80,7 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="470dp"
         android:ems="11"
         android:fontFamily="serif"
         android:text="Enter your ID number:" />
@@ -91,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="530dp"
+        android:layout_marginTop="540dp"
         android:ems="11"
         android:inputType="textPhonetic" />
 
@@ -101,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="530dp"
         android:ems="11"
         android:fontFamily="serif"
         android:text="Enter your Phone number:" />
@@ -112,8 +131,23 @@
         android:layout_height="380dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="270dp"
         android:src="@drawable/ob1" />
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" >
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="end"/>
+    </androidx.appcompat.widget.Toolbar>
 
 </RelativeLayout>

@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:text="Select The Region"
         android:fontFamily="serif"
-        android:layout_marginTop="130dp"/>
+        android:textColor="#F2161515"
+        android:layout_marginTop="50dp"/>
 
     <Spinner
         android:id="@+id/spinner1"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="Region"
         android:fontFamily="serif"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="70dp"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -31,7 +32,8 @@
         android:layout_height="wrap_content"
         android:text="Select The Start Point"
         android:fontFamily="serif"
-        android:layout_marginTop="230dp"/>
+        android:textColor="#F2161515"
+        android:layout_marginTop="150dp"/>
 
     <Spinner
         android:id="@+id/spinner2"
@@ -39,7 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Start Point"
         android:fontFamily="serif"
-        android:layout_marginTop="250dp"/>
+        android:layout_marginTop="170dp"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -47,7 +49,8 @@
         android:layout_height="wrap_content"
         android:text="Select The Time to Go"
         android:fontFamily="serif"
-        android:layout_marginTop="330dp"/>
+        android:textColor="#F2161515"
+        android:layout_marginTop="270dp"/>
 
     <Spinner
         android:id="@+id/spinner3"
@@ -55,7 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Time to Go"
         android:fontFamily="serif"
-        android:layout_marginTop="350dp"/>
+        android:layout_marginTop="290dp"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -63,7 +66,8 @@
         android:layout_height="wrap_content"
         android:text="Select The Access Point"
         android:fontFamily="serif"
-        android:layout_marginTop="430dp"/>
+        android:textColor="#F2161515"
+        android:layout_marginTop="370dp"/>
 
     <Spinner
         android:id="@+id/spinner4"
@@ -71,14 +75,15 @@
         android:layout_height="wrap_content"
         android:text="Access Point"
         android:fontFamily="serif"
-        android:layout_marginTop="450dp"/>
+        android:layout_marginTop="390dp"/>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="530dp"
+        android:layout_marginTop="470dp"
         android:fontFamily="serif"
+        android:textColor="#F2161515"
         android:text="Select The Number of Passengers" />
 
     <Spinner
@@ -87,16 +92,17 @@
         android:layout_height="wrap_content"
         android:text="number of passengers"
         android:fontFamily="serif"
-        android:layout_marginTop="550dp"/>
+        android:layout_marginTop="490dp"/>
 
     <Button
         android:id="@+id/bt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="550dp"
         android:background="#B5DCE2"
         android:text="Book a Trip"
+        android:onClick="tv"
         android:fontFamily="serif"
         android:textColor="#F2747171" />
 </RelativeLayout>
