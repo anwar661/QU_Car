@@ -45,7 +45,7 @@ public class Register extends Activity implements View.OnClickListener {
         idn = findViewById(R.id.idnum);
         phn = findViewById(R.id.phnum);
 
-        userdatabase = FirebaseDatabase.getInstance().getReference("Users");
+        //userdatabase = FirebaseDatabase.getInstance().getReference("Users");
 
         progressBar.setVisibility(View.GONE);
 
@@ -142,10 +142,11 @@ public class Register extends Activity implements View.OnClickListener {
                                     idnumber,
                                     password
                             );
-                            userdatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(Register.this,new OnCompleteListener<Void>() {
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
-                                public void onComplete(@NonNull Task<Void> task) {
+                                public void onComplete(@NonNull Task<Void> task){
                                     progressBar.setVisibility(View.GONE);
                                     if (task.isSuccessful()) {
                                         Toast.makeText(Register.this, "Registered successfully", Toast.LENGTH_LONG).show();

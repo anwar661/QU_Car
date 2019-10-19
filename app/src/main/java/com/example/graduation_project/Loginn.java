@@ -7,6 +7,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,23 +31,32 @@ public class Loginn  extends Activity implements View.OnClickListener{
     TextView txtV;
     TextView txtf;
     FirebaseAuth mAuth;
+    CheckBox checkBox;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-            email = (EditText) findViewById(R.id.em);
-            password = (EditText) findViewById(R.id.pwdInp);
-            button = (Button) findViewById(R.id.logInBtn);
-            txtV = (TextView) findViewById(R.id.txtvSignUp);
-            txtf = (TextView) findViewById(R.id.forg);
+            email =findViewById(R.id.em);
+            password =findViewById(R.id.pwdInp);
+            button =findViewById(R.id.logInBtn);
+            txtV =findViewById(R.id.txtvSignUp);
+            txtf =findViewById(R.id.forg);
+            progressBar = findViewById(R.id.progressBar);
+            checkBox=findViewById(R.id.checkBox);
             mAuth = FirebaseAuth.getInstance();
             button.setOnClickListener(this);
             txtV.setOnClickListener(this);
+            if(checkBox.hasSelection()==true){
+                if (mAuth.getCurrentUser() != null) {
+                    Intent i=new Intent(this,home_page.class);
+                    startActivity(i);
+                    finish();
+                }
+            }
         }
     public void fog(View V){
         Intent i=new Intent(this,ResetPassword.class);
         startActivity(i);
-        finish();
     }
         @Override
         public void onClick(View v) {
@@ -55,7 +65,6 @@ public class Loginn  extends Activity implements View.OnClickListener{
             if( v== txtV){
                 Intent i=new Intent(this,Register.class);
                 startActivity(i);
-                finish();
             }
         }
 
@@ -63,29 +72,29 @@ public class Loginn  extends Activity implements View.OnClickListener{
            final String eml = email.getText().toString().trim();
             final String pass = password.getText().toString().trim();
             if (eml.isEmpty()) {
-                Toast.makeText(this,"Please enter your Email", Toast.LENGTH_LONG).show();
+                email.setError(getString(R.string.input_error_email));
                 email.requestFocus();
                 return;
             }
 
             if (!Patterns.EMAIL_ADDRESS.matcher(eml).matches()) {
-                Toast.makeText(this,"Your Email is invalid", Toast.LENGTH_LONG).show();
+                email.setError(getString(R.string.input_error_email_invalid));
                 email.requestFocus();
                 return;
             }
 
             if (pass.isEmpty()) {
-                Toast.makeText(this,"Please enter your password", Toast.LENGTH_LONG).show();
+                password.setError(getString(R.string.input_error_password));
                 password.requestFocus();
                 return;
             }
 
             if (pass.length() < 6) {
-                Toast.makeText(this,"Your password is invalid", Toast.LENGTH_LONG).show();
+                password.setError(getString(R.string.input_error_password_length));
                 password.requestFocus();
                 return;
             }
-            progressBar.setVisibility(View.VISIBLE);
+          progressBar.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(eml,pass)
                 .addOnCompleteListener(Loginn.this,new OnCompleteListener<AuthResult>() {
                     @Override
