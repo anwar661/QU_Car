@@ -30,5 +30,8 @@ public class home_page extends AppCompatActivity {
         Intent i=new Intent(this,Loginn.class);
         startActivity(i);
         finish();
+    }public void set(View V){
+        Intent i=new Intent(this,Setting.class);
+        startActivity(i);
     }
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Setting">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ch"/>
+    <EditText
+        android:id="@+id/idn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:ems="11"
+        android:hint="Enter ID number to update"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/usrInp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp"
+        android:ems="11"
+        android:hint="Edit Username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/em"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="370dp"
+        android:ems="11"
+        android:hint="Edit Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/pwdInp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="430dp"
+        android:ems="11"
+        android:hint="Edit Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/phnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="480dp"
+        android:ems="11"
+        android:hint="Edit Phone number"
+        android:inputType="textPhonetic" />
+    <EditText
+        android:id="@+id/car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="540dp"
+        android:ems="11"
+        android:hint="Edit Car"
+        android:inputType="textPersonName" />
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_marginTop="600dp"
+        android:fontFamily="serif"
+        android:background="#B5DCE2"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

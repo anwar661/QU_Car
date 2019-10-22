@@ -15,10 +15,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
         android:fontFamily="serif"
         android:text="Available Trips "
-        android:layout_marginTop="280dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#6D6A6A" />
 
     <TextView
         android:layout_width="wrap_content"

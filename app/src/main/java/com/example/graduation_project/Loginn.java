@@ -46,13 +46,8 @@ public class Loginn  extends Activity implements View.OnClickListener{
             mAuth = FirebaseAuth.getInstance();
             button.setOnClickListener(this);
             txtV.setOnClickListener(this);
-            if(checkBox.hasSelection()==true){
-                if (mAuth.getCurrentUser() != null) {
-                    Intent i=new Intent(this,home_page.class);
-                    startActivity(i);
-                    finish();
-                }
-            }
+            checkBox.setOnClickListener(this);
+
         }
     public void fog(View V){
         Intent i=new Intent(this,ResetPassword.class);
@@ -65,6 +60,12 @@ public class Loginn  extends Activity implements View.OnClickListener{
             if( v== txtV){
                 Intent i=new Intent(this,Register.class);
                 startActivity(i);
+            }if(v==checkBox){
+                if (mAuth.getCurrentUser() != null) {
+                    Intent i=new Intent(this,home_page.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         }
 

@@ -7,6 +7,17 @@
     android:background="#FFFFFF"
     tools:context=".Splash_Screen">
 
+    <TextView
+        android:id="@+id/ca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        android:fontFamily="serif"
+        android:text="CU_Car"
+        android:textColor="#C8C9ACF1"
+        android:textSize="14sp" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="257dp"

@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="400dp"
         android:background="#B5DCE2"
         android:text="Find a trip"
         android:onClick="findt"
@@ -38,7 +38,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="480dp"
         android:background="#B5DCE2"
         android:onClick="addt"
         android:text="Add a trip"
@@ -53,7 +53,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="550dp"
         android:background="#B5DCE2"
         android:onClick="out"
         android:text="Log out"
@@ -67,6 +67,23 @@
         android:layout_marginEnd="30dp"
         android:layout_marginTop="250dp"
         app:srcCompat="@drawable/ob" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" >
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:onClick="set"
+            app:srcCompat="@drawable/ser" />
+    </androidx.appcompat.widget.Toolbar>
+
 
 
 </RelativeLayout>

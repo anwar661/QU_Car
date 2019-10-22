@@ -1,6 +1,5 @@
 package com.example.graduation_project;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -19,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ResetPassword extends AppCompatActivity {
 
         private EditText inputEmail;
-        private Button btnReset, btnBack;
+        private Button btnReset;
         private FirebaseAuth auth;
         private ProgressBar progressBar;
 
@@ -63,10 +62,6 @@ public class ResetPassword extends AppCompatActivity {
                             });
                 }
             });
-        }public void fog(View V){
-        Intent i=new Intent(this,Loginn.class);
-        startActivity(i);
-        finish();
-    }
+        }
 
     }
