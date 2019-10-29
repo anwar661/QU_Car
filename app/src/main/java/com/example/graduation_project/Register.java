@@ -117,9 +117,6 @@ public class Register extends Activity implements View.OnClickListener {
             idn.requestFocus();
             return;
         }
-       // if (!idnumber.isEmpty()) {
-         //   userdatabase.push().getKey();
-        //}
         if (idnumber.length() != 9) {
             Toast.makeText(this, "Your ID number is invalid", Toast.LENGTH_LONG).show();
             idn.requestFocus();
@@ -139,8 +136,7 @@ public class Register extends Activity implements View.OnClickListener {
                                     name,
                                     email,
                                     phone,
-                                    idnumber,
-                                    password
+                                    idnumber
                             );
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

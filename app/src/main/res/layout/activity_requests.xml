@@ -22,8 +22,9 @@
         android:textStyle="bold" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="320dp"
         android:fontFamily="serif"
         android:text="Name:\ncollege:\nType of car:\n" />
@@ -33,7 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Accept"
+        android:layout_marginLeft="10dp"
         android:background="#B5DCE2"
+        android:layout_alignParentTop="true"
         android:fontFamily="serif"
         android:layout_marginTop="380dp" />
 
@@ -45,12 +48,14 @@
         android:layout_marginTop="380dp"
         android:background="#B5DCE2"
         android:fontFamily="serif"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="440dp"
         android:text="Name:\ncollege:\nType of car:\n" />
 
@@ -59,6 +64,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
         android:background="#B5DCE2"
         android:fontFamily="serif"
         android:text="Accept" />
@@ -71,6 +78,7 @@
         android:layout_marginTop="500dp"
         android:background="#B5DCE2"
         android:fontFamily="serif"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
 

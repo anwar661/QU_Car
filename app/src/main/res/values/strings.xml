@@ -8,10 +8,17 @@
     </string-array>
 
     <string-array name="StartPoint">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>East of Buraydah</item>
+        <item>North of Buraydah</item>
+        <item>South of Buraydah</item>
+        <item>West of Buraydah</item>
+        <item>Centre of Buraydah</item>
+        <item>Centre of Unaizah</item>
+        <item>East of Unaizah</item>
+        <item>North of Unaizah</item>
+        <item>South of Unaizah</item>
+        <item>North of Unaizah</item>
+        <item>Alrass</item>
     </string-array>
 
     <string-array name="TimetoGo">
@@ -27,10 +34,32 @@
     </string-array>
 
     <string-array name="AccessPoint">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>Qussaim university</item>
+        <item>King Abdullah Park</item>
+        <item>King Khalid Park</item>
+        <item>Al Busar Park</item>
+        <item>Al Othaim Mall</item>
+        <item>Rasheed Dome Market</item>
+        <item>Oasis Mall</item>
+        <item>Al Danube Supermarket</item>
+        <item>Unaizah Mall</item>
+        <item>Al Othaim Mall Unaizah</item>
+        <item>Ghada Park</item>
+        <item>Unaizah House for Folklores</item>
+    </string-array>
+
+    <string-array name="Rallypoint">
+        <item>King Abdullah Park</item>
+        <item>King Khalid Park</item>
+        <item>Al Busar Park</item>
+        <item>Al Othaim Mall</item>
+        <item>Rasheed Dome Market</item>
+        <item>Oasis Mall</item>
+        <item>Al Danube Supermarket</item>
+        <item>Unaizah Mall</item>
+        <item>Al Othaim Mall Unaizah</item>
+        <item>Ghada Park</item>
+        <item>Unaizah House for Folklores</item>
     </string-array>
 
     <string-array name="NumberofPassengers">
@@ -44,6 +73,7 @@
     <string name="input_error_password">password required</string>
     <string name="input_error_phone">phone required</string>
     <string name="input_error_password_length">password should be atleast 6 characters long</string>
+    <string name="input_error_id_length">ID should be atleast 9 number</string>
     <string name="input_error_phone_invalid">enter a valid phone number</string>
     <string name="registration_success">Registered Successfully</string>
     <string name="input_error_email_invalid">enter a valid email</string>

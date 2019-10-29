@@ -45,6 +45,12 @@ public class Book_trip extends AppCompatActivity {
         myAdapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner5.setAdapter(myAdapter5);
 
+        Spinner mySpinner6 =findViewById(R.id.spinner6);
+        ArrayAdapter<String> myAdapter6=new ArrayAdapter<String>(Book_trip.this,
+                android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.Rallypoint));
+        myAdapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner6.setAdapter(myAdapter6);
+
     }public void tv(View V){
         Intent i=new Intent(this,Trips_Available.class);
         startActivity(i);

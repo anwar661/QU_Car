@@ -42,11 +42,9 @@ public class Loginn  extends Activity implements View.OnClickListener{
             txtV =findViewById(R.id.txtvSignUp);
             txtf =findViewById(R.id.forg);
             progressBar = findViewById(R.id.progressBar);
-            checkBox=findViewById(R.id.checkBox);
             mAuth = FirebaseAuth.getInstance();
             button.setOnClickListener(this);
             txtV.setOnClickListener(this);
-            checkBox.setOnClickListener(this);
 
         }
     public void fog(View V){
@@ -60,12 +58,6 @@ public class Loginn  extends Activity implements View.OnClickListener{
             if( v== txtV){
                 Intent i=new Intent(this,Register.class);
                 startActivity(i);
-            }if(v==checkBox){
-                if (mAuth.getCurrentUser() != null) {
-                    Intent i=new Intent(this,home_page.class);
-                    startActivity(i);
-                    finish();
-                }
             }
         }
 
@@ -107,8 +99,8 @@ public class Loginn  extends Activity implements View.OnClickListener{
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(Loginn.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(Loginn.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

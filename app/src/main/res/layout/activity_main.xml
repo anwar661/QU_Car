@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="570dp"
         android:fontFamily="serif"
         android:text="Not registered ? Sign up" />
 
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="540dp"
         android:background="@null"
         android:fontFamily="serif"
         android:onClick="fog"
@@ -88,17 +88,5 @@
             android:visibility="gone"
             android:layout_gravity="end"/>
     </androidx.appcompat.widget.Toolbar>
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="550dp"
-        android:fontFamily="serif"
-        android:text="Remember me"
-        android:checked="true"
-        android:textColor="#E4615F5F" />
-
 
 </RelativeLayout>

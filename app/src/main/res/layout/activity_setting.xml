@@ -1,56 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Setting">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ch"/>
-    <EditText
-        android:id="@+id/idn"
+        android:background="@drawable/b1"/>
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="270dp"
-        android:ems="11"
-        android:hint="Enter ID number to update"
-        android:inputType="textPersonName" />
-    <EditText
-        android:id="@+id/usrInp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="320dp"
-        android:ems="11"
-        android:hint="Edit Username"
-        android:inputType="textPersonName" />
-
+        android:text="Enter your Email to update your password:"
+        android:fontFamily="serif"
+        android:textColor="#405D61"
+        android:layout_marginTop="100dp"/>
     <EditText
         android:id="@+id/em"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="120dp"
         android:ems="11"
-        android:hint="Edit Email"
+        android:hint="Email"
         android:inputType="textEmailAddress" />
-
+    <EditText
+        android:id="@+id/oldpwdInp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:ems="11"
+        android:hint="Old Password"
+        android:inputType="textPassword" />
     <EditText
         android:id="@+id/pwdInp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="220dp"
         android:ems="11"
-        android:hint="Edit Password"
+        android:hint="New Password"
         android:inputType="textPassword" />
+    <Button
+        android:id="@+id/updatpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Password"
+        android:layout_marginTop="270dp"
+        android:fontFamily="serif"
+        android:background="#B5DCE2"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/te"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Enter your Email to update your infomation:"
+        android:fontFamily="serif"
+        android:textColor="#405D61"
+        android:layout_marginTop="330dp"/>
+    <EditText
+        android:id="@+id/eml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="370dp"
+        android:ems="11"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/usrInp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="420dp"
+        android:ems="11"
+        android:hint="New Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/idn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="470dp"
+        android:ems="11"
+        android:hint="New ID Number"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/phnum"
@@ -58,27 +111,80 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="520dp"
         android:ems="11"
-        android:hint="Edit Phone number"
+        android:hint="New Phone number"
         android:inputType="textPhonetic" />
-    <EditText
-        android:id="@+id/car"
+    <Button
+        android:id="@+id/updatuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update User Information"
+        android:layout_marginTop="570dp"
+        android:fontFamily="serif"
+        android:background="#B5DCE2"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="630dp"
+        android:layout_marginLeft="70dp"
+        android:fontFamily="serif"
+        android:text="Enter your Car Plate Number to Update your car information:"
+        android:textColor="#405D61" />
+    <EditText
+        android:id="@+id/carp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="660dp"
         android:ems="11"
-        android:hint="Edit Car"
+        android:hint="Car Plate Number"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="710dp"
+        android:ems="11"
+        android:hint="New Type of Car"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/carc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="760dp"
+        android:ems="11"
+        android:hint="New Car color"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/carpn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="810dp"
+        android:ems="11"
+        android:hint="New Plate Number"
         android:inputType="textPersonName" />
     <Button
         android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit"
-        android:layout_marginTop="600dp"
+        android:text="Update Car Information"
+        android:layout_marginTop="860dp"
         android:fontFamily="serif"
         android:background="#B5DCE2"
         android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>
+</ScrollView>
