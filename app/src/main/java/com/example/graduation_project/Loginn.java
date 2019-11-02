@@ -7,7 +7,6 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,7 +30,6 @@ public class Loginn  extends Activity implements View.OnClickListener{
     TextView txtV;
     TextView txtf;
     FirebaseAuth mAuth;
-    CheckBox checkBox;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

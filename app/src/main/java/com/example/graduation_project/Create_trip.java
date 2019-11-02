@@ -151,9 +151,9 @@ public class Create_trip extends Activity implements View.OnClickListener{
                 EndPoint,
                 PNumber
         );
-        FirebaseDatabase.getInstance().getReference("Trips")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()) .child("Trips")
+                .push().setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task){
                 progressBar.setVisibility(View.GONE);
@@ -183,9 +183,9 @@ public class Create_trip extends Activity implements View.OnClickListener{
                 CarCollor,
                 Carplate
         );
-        FirebaseDatabase.getInstance().getReference("Cars")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .setValue(cars).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Cars")
+                .push().setValue(cars).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task){
                 progressBar.setVisibility(View.GONE);

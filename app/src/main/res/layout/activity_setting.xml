@@ -23,14 +23,14 @@
         android:text="Enter your Email to update your password:"
         android:fontFamily="serif"
         android:textColor="#405D61"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="150dp"/>
     <EditText
         android:id="@+id/em"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="170dp"
         android:ems="11"
         android:hint="Email"
         android:inputType="textEmailAddress" />
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="220dp"
         android:ems="11"
         android:hint="Old Password"
         android:inputType="textPassword" />
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="270dp"
         android:ems="11"
         android:hint="New Password"
         android:inputType="textPassword" />
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Password"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="320dp"
         android:fontFamily="serif"
         android:background="#B5DCE2"
         android:layout_centerHorizontal="true" />
@@ -69,27 +69,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Enter your Email to update your infomation:"
+        android:text="Enter your infomation who you want to update:"
         android:fontFamily="serif"
         android:textColor="#405D61"
-        android:layout_marginTop="330dp"/>
-    <EditText
-        android:id="@+id/eml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="370dp"
-        android:ems="11"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:layout_marginTop="380dp"/>
     <EditText
         android:id="@+id/usrInp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="400dp"
         android:ems="11"
         android:hint="New Name"
         android:inputType="textPersonName" />
@@ -100,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="450dp"
         android:ems="11"
         android:hint="New ID Number"
         android:inputType="textEmailAddress" />
@@ -111,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="500dp"
         android:ems="11"
         android:hint="New Phone number"
         android:inputType="textPhonetic" />
@@ -120,9 +110,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update User Information"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="550dp"
         android:fontFamily="serif"
         android:background="#B5DCE2"
+        android:onClick="updatuser"
         android:layout_centerHorizontal="true" />
     <TextView
         android:id="@+id/textView13"
@@ -130,28 +121,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="630dp"
+        android:layout_marginTop="610dp"
         android:layout_marginLeft="70dp"
         android:fontFamily="serif"
-        android:text="Enter your Car Plate Number to Update your car information:"
+        android:text="Enter your car infomation who you want to update:"
         android:textColor="#405D61" />
-    <EditText
-        android:id="@+id/carp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="660dp"
-        android:ems="11"
-        android:hint="Car Plate Number"
-        android:inputType="textPersonName" />
     <EditText
         android:id="@+id/cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="710dp"
+        android:layout_marginTop="650dp"
         android:ems="11"
         android:hint="New Type of Car"
         android:inputType="textPersonName" />
@@ -161,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="760dp"
+        android:layout_marginTop="700dp"
         android:ems="11"
         android:hint="New Car color"
         android:inputType="textPersonName" />
@@ -171,7 +152,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="810dp"
+        android:layout_marginTop="750dp"
         android:ems="11"
         android:hint="New Plate Number"
         android:inputType="textPersonName" />
@@ -180,9 +161,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Car Information"
-        android:layout_marginTop="860dp"
+        android:layout_marginTop="800dp"
         android:fontFamily="serif"
         android:background="#B5DCE2"
+        android:onClick="updatcar"
         android:layout_centerHorizontal="true" />
 
 
