@@ -166,15 +166,15 @@ public class Create_trip extends Activity implements View.OnClickListener{
         });
 
         if (CarTyps.isEmpty()) {
-            Toast.makeText(this, "Car Typ is required", Toast.LENGTH_LONG).show();
+            carType.setError("Car type required");
             carType.requestFocus();
             return;
         }if (CarCollor.isEmpty()) {
-            Toast.makeText(this, "Car Collor is required", Toast.LENGTH_LONG).show();
+            carColor.setError("Car color required");
             carColor.requestFocus();
             return;
         }if (Carplate.isEmpty()) {
-            Toast.makeText(this, "Plate Number is required", Toast.LENGTH_LONG).show();
+            pNumper.setError("Car plate number required");
             pNumper.requestFocus();
             return;
         }

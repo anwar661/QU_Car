@@ -5,10 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Trips_Available">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/ch"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"/>
 
     <TextView
         style="@android:style/Widget.TextView"
@@ -20,57 +28,6 @@
         android:text="Available Trips "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#6D6A6A" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:fontFamily="serif"
-        android:text="Name:\ncollege:\nType of car:\n" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Request"
-        android:fontFamily="serif"
-        android:layout_marginTop="350dp"
-        android:background="#B5DCE2"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:fontFamily="serif"
-        android:text="Name:\ncollege:\nType of car:\n" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Request"
-        android:fontFamily="serif"
-        android:layout_marginTop="450dp"
-        android:background="#B5DCE2"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:fontFamily="serif"
-        android:text="Name:\ncollege:\nType of car:\n" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Request"
-        android:fontFamily="serif"
-        android:background="#B5DCE2"
-        android:layout_marginTop="550dp"
-        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

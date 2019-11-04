@@ -91,7 +91,7 @@ public class Loginn  extends Activity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "signInWithEmail:success");
+                            Toast.makeText(Loginn.this, "Login With Email:success", Toast.LENGTH_SHORT).show();
                             startActivity( new Intent(getApplicationContext(),home_page.class));
                             finish();
                         } else {

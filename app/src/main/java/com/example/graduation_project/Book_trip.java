@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -51,9 +52,33 @@ public class Book_trip extends AppCompatActivity {
         myAdapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner6.setAdapter(myAdapter6);
 
-    }public void tv(View V){
+        String mySpinner_1 = mySpinner1.getItemAtPosition(mySpinner1.getSelectedItemPosition())
+                        .toString();
+        Intent i1 = new Intent(this, Trips_Available.class);
+        i1.putExtra("mySpinner1", mySpinner_1);
+        String mySpinner_2 = mySpinner2.getItemAtPosition(mySpinner2.getSelectedItemPosition())
+                        .toString();
+        Intent i2 = new Intent(this, Trips_Available.class);
+        i2.putExtra("mySpinner2", mySpinner_2);
+        String mySpinner_3 = mySpinner3.getItemAtPosition(mySpinner3.getSelectedItemPosition())
+                        .toString();
+        Intent i3 = new Intent(this, Trips_Available.class);
+        i3.putExtra("mySpinner3", mySpinner_3);
+        String mySpinner_4 = mySpinner4.getItemAtPosition(mySpinner4.getSelectedItemPosition())
+                        .toString();
+        Intent i4 = new Intent(this, Trips_Available.class);
+        i4.putExtra("mySpinner4", mySpinner_4);
+        String mySpinner_5 =
+                mySpinner5.getItemAtPosition(mySpinner5.getSelectedItemPosition())
+                        .toString();
+        Intent i5 = new Intent(this, Trips_Available.class);
+        i5.putExtra("mySpinner5", mySpinner_5);
+    }
+    public void tv(View V){
+        Toast.makeText(Book_trip.this, "Searching for available trips", Toast.LENGTH_SHORT).show();
         Intent i=new Intent(this,Trips_Available.class);
         startActivity(i);
     }
+
 }
 
