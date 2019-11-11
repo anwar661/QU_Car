@@ -30,7 +30,7 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
                                  int position) {
         Trips_class trips = tripstList.get(position);
         holder.textViewName.setText("Name: " +trips.name);
-        holder.textViewCar.setText("Car Type: " + trips.car);
+        holder.textViewCar.setText("Car Type: " + trips.getCar());
     }
     @Override
     public int getItemCount() {

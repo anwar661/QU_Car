@@ -2,7 +2,9 @@ package com.example.graduation_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,22 +30,24 @@ public class Trips_Available extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trips__available);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
         dbTrips = database.getReference("Users");
-        dbTrips.orderByChild("Users").addValueEventListener(valueEventListener);
-       // dbTrips = FirebaseDatabase.getInstance().getReference("Trips");
-        Intent intent1 = getIntent();
-        String mySpinner_1 = intent1.getStringExtra("mySpinner1");
-        Intent intent2 = getIntent();
-        String mySpinner_2 = intent2.getStringExtra("mySpinner2");
-        Intent intent3 = getIntent();
-        String mySpinner_3 = intent3.getStringExtra("mySpinner3");
-        Intent intent4 = getIntent();
-        String mySpinner_4 = intent4.getStringExtra("mySpinner4");
-        Intent intent5 = getIntent();
-        String mySpinner_5 = intent5.getStringExtra("mySpinner5");
-        Intent intent6 = getIntent();
-        String mySpinner_6 = intent6.getStringExtra("mySpinner6");
+
+        // dbTrips = FirebaseDatabase.getInstance().getReference("Trips");
+        Intent intent = getIntent();
+        final String Region = intent.getStringExtra("Region");
+        final String StartPoint = intent.getStringExtra("StartPoint");
+        final String TimetoGo = intent.getStringExtra("TimetoGo");
+        final String AccessPoint = intent.getStringExtra("AccessPoint");
+        final String NumberofPassengers = intent.getStringExtra("NumberofPassengers");
+        final String Rallypoint = intent.getStringExtra("Rallypoint");
+        Log.d("MUTEE",Region);
+        Log.d("MUTEE",StartPoint);
+        Log.d("MUTEE",TimetoGo);
+        Log.d("MUTEE",AccessPoint);
+        Log.d("MUTEE",NumberofPassengers);
+        Log.d("MUTEE",Rallypoint);
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -51,51 +55,90 @@ public class Trips_Available extends AppCompatActivity {
         adapter = new TripsAdapter(this, tripsList);
         recyclerView.setAdapter(adapter);
 
-        Query query1 = FirebaseDatabase.getInstance().getReference("Users").child("Users").child("Trips")
-                .orderByChild("Region")
-                .equalTo(mySpinner_1);
-        query1.addListenerForSingleValueEvent(valueEventListener);
-        Query query2 = FirebaseDatabase.getInstance().getReference("Users").child("Users").child("Trips")
-                .orderByChild("StartPoint")
-                .equalTo(mySpinner_2);
-        query2.addListenerForSingleValueEvent(valueEventListener);
-        Query query3 = FirebaseDatabase.getInstance().getReference("Users").child("Users").child("Trips")
-                .orderByChild("Time")
-                .equalTo(mySpinner_3);
-        query3.addListenerForSingleValueEvent(valueEventListener);
-        Query query4 = FirebaseDatabase.getInstance().getReference("Users").child("Users").child("Trips")
-                .orderByChild("EndPoint")
-                .equalTo(mySpinner_4);
-        query4.addListenerForSingleValueEvent(valueEventListener);
-        Query query5 = FirebaseDatabase.getInstance().getReference("Users").child("Users").child("Trips")
-                .orderByChild("Number")
-                .equalTo(mySpinner_5);
-        query5.addListenerForSingleValueEvent(valueEventListener);
-        Query query6 = FirebaseDatabase.getInstance().getReference("Users").child("Users").child("Trips")
-                .orderByChild("RallyPoint")
-                .equalTo(mySpinner_6);
-        query6.addListenerForSingleValueEvent(valueEventListener);
+        Query query1 = FirebaseDatabase.getInstance().getReference("Users");
+        query1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+
+                    final String key=child.getKey();
+                    FirebaseDatabase.getInstance().getReference("Users").child(key).child("Trips").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                            if(dataSnapshot1.exists()){
+                                for (DataSnapshot trip : dataSnapshot1.getChildren()){
+
+                                    final Trips  trips=trip.getValue(Trips.class);
+                                    Log.d("MUTEE",trips.toString());
+                                    if(trips.RallyPoint.equals(Rallypoint)
+                                            &&trips.PNumber.equals(NumberofPassengers)
+                                            &&trips.EndPoint.equals(AccessPoint)
+                                            &&trips.StratPoint.equals(StartPoint)
+                                            &&trips.Region.equals(Region)
+                                            &&trips.Time.equals(TimetoGo)){
+                                        Log.d("MUTEE","MATCH");
+                                        FirebaseDatabase.getInstance().getReference("Users").child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
+                                                if(dataSnapshot2.exists()){
+                                                    final User user=dataSnapshot2.getValue(User.class);
+
+                                                    FirebaseDatabase.getInstance().getReference("Users").child(key).child("Cars").addListenerForSingleValueEvent(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot3) {
+                                                            if(dataSnapshot3.exists()){
+                                                                Cars cars=dataSnapshot3.getValue(Cars.class);
+                                                                Trips_class trips_class=new Trips_class();
+                                                                trips_class.setName(user.name);
+                                                                trips_class.setCar(cars.CarTyps);
+                                                                tripsList.add(trips_class);
+                                                                adapter.notifyDataSetChanged();
+
+                                                            }
+
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                        }
+                                                    });
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                            }
+                                        });
+
+                                        adapter.notifyDataSetChanged();
+
+                                    }
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    }) ;
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
     }
-    ValueEventListener valueEventListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    tripsList.clear();
-                    if (dataSnapshot.exists()) {
-                        for (DataSnapshot snapshot :
-                                dataSnapshot.getChildren()) {
-                            Trips_class trips =
-                                    snapshot.getValue(Trips_class.class);
-                            tripsList.add(trips);
-                        }
-                        adapter.notifyDataSetChanged();
-                    }
-                }
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                }
-            };
 
 
 }

@@ -13,4 +13,16 @@ public class Trips {
         this.EndPoint = EndPoint;
         this.PNumber = PNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Trips{" +
+                "Region='" + Region + '\'' +
+                ", StratPoint='" + StratPoint + '\'' +
+                ", RallyPoint='" + RallyPoint + '\'' +
+                ", Time='" + Time + '\'' +
+                ", EndPoint='" + EndPoint + '\'' +
+                ", PNumber='" + PNumber + '\'' +
+                '}';
+    }
 }
