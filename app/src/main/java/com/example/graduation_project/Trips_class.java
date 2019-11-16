@@ -4,6 +4,15 @@ public class Trips_class {
 
     public String name;
     public String car;
+    public String trip_id;
+
+    public String getTrip_id() {
+        return trip_id;
+    }
+
+    public void setTrip_id(String trip_id) {
+        this.trip_id = trip_id;
+    }
 
     public String getDriver_id() {
         return driver_id;

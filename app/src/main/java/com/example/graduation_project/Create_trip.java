@@ -173,9 +173,12 @@ public class Create_trip extends Activity implements View.OnClickListener{
         trips.setRallyPoint(RallyPoint);
         trips.setStratPoint(StratPoint);
         trips.setTime(Time);
-        FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()) .child("Trips")
-                .push().setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
+        DatabaseReference push = FirebaseDatabase.getInstance().getReference("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Trips")
+                .push();
+
+        trips.setTrip_id(mAuth.getCurrentUser().getUid());
+        push.setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task){
                 progressBar.setVisibility(View.GONE);

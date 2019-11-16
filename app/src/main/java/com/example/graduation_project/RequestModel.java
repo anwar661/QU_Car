@@ -6,6 +6,24 @@ public class RequestModel {
     String to;
     String name;
     String messge;
+    String trip_id;
+    String request_id;
+
+    public String getRequest_id() {
+        return request_id;
+    }
+
+    public void setRequest_id(String request_id) {
+        this.request_id = request_id;
+    }
+
+    public String getTrip_id() {
+        return trip_id;
+    }
+
+    public void setTrip_id(String trip_id) {
+        this.trip_id = trip_id;
+    }
 
     public String getTypeCar() {
         return typeCar;

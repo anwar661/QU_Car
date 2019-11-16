@@ -19,16 +19,20 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Requests extends AppCompatActivity {
 
     RecyclerView requests;
-    FirebaseRecyclerOptions<RequestModel> options;
-    FirebaseRecyclerAdapter<RequestModel,RequstsViewHolder> adapter;
+    RequestsAdapter requestsAdapter;
     String user_id;
     Query query;
 
@@ -40,50 +44,10 @@ public class Requests extends AppCompatActivity {
         requests=findViewById(R.id.requests);
         requests.setLayoutManager(new LinearLayoutManager(this));
         user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
-        query= FirebaseDatabase.getInstance().getReference("Requests").child(user_id);
-        options=new FirebaseRecyclerOptions.Builder<RequestModel>().setQuery(query,RequestModel.class).build();
-        adapter=new FirebaseRecyclerAdapter<RequestModel, RequstsViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull RequstsViewHolder holder, final int position, @NonNull final RequestModel model) {
-                holder.car_type.setText(model.getTypeCar());
-                holder.message.setText(model.getMessge());
-                holder.name.setText(model.name);
+        query= FirebaseDatabase.getInstance().getReference("Requests");
+        requestsAdapter=new RequestsAdapter();
+        requests.setAdapter(requestsAdapter);
 
-                if(model.getTo().equals(user_id)){
-                    holder.layout.setVisibility(View.VISIBLE);
-
-                }
-                holder.btn_accept.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        HashMap<String,Object> map=new HashMap<>();
-                        map.put("state",1);
-                        map.put("message"," Accepted");
-                      FirebaseDatabase.getInstance().getReference("Requests").child(user_id).updateChildren(map);
-                        FirebaseDatabase.getInstance().getReference("Requests").child(model.getFrom()).updateChildren(map);
-                    }
-                });
-
-                holder.btn_reject.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        HashMap<String,Object> map=new HashMap<>();
-                        map.put("state",2);
-                        map.put("message"," Rejected");
-                        FirebaseDatabase.getInstance().getReference("Requests").child(user_id).updateChildren(map);
-                        FirebaseDatabase.getInstance().getReference("Requests").child(model.getFrom()).updateChildren(map);
-                    }
-                });
-
-            }
-
-            @NonNull
-            @Override
-            public RequstsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new RequstsViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.request_row,parent,false));
-            }
-        };
-        requests.setAdapter(adapter);
 
 
     }
@@ -91,29 +55,33 @@ public class Requests extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        adapter.startListening();
+        final List<RequestModel> requestModels=new ArrayList<>();
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                requestModels.clear();
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    RequestModel requestModel=child.getValue(RequestModel.class);
+                    if(requestModel.getTo().equals(user_id)|| requestModel.getFrom().equals(user_id)){
+                        requestModels.add(requestModel);
+                        requestsAdapter.submitList(requestModels);
+                    }
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
 
-    class RequstsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView car_type,message,name;
-        Button btn_reject,btn_accept;
-        LinearLayout layout;
-
-        public RequstsViewHolder(@NonNull View itemView) {
-            super(itemView);
-            car_type=itemView.findViewById(R.id.car_type);
-            message=itemView.findViewById(R.id.message);
-            name=itemView.findViewById(R.id.name);
-            btn_accept=itemView.findViewById(R.id.btn_accept);
-            layout=itemView.findViewById(R.id.layout);
-            btn_reject=itemView.findViewById(R.id.btn_reject);
-        }
-    }
 }

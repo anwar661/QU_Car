@@ -1,20 +1,36 @@
 package com.example.graduation_project;
 
 public class Trips {
-    public String region,stratPoint,rallyPoint,time,endPoint,pNumber;
-    public  Cars cars;
-    public Trips(){
+    public String region;
+    public String stratPoint;
+    public String rallyPoint;
+    public String time;
+    public String endPoint;
+    public String pNumber;
 
-    }
-
-    public Trips(String region, String stratPoint, String rallyPoint, String time, String endPoint, String pNumber, Cars cars) {
+    public Trips(String region, String stratPoint, String rallyPoint, String time, String endPoint, String pNumber, String trip_id, Cars cars) {
         this.region = region;
         this.stratPoint = stratPoint;
         this.rallyPoint = rallyPoint;
         this.time = time;
         this.endPoint = endPoint;
         this.pNumber = pNumber;
+        this.trip_id = trip_id;
         this.cars = cars;
+    }
+
+    public String trip_id;
+    public  Cars cars;
+    public Trips(){
+
+    }
+
+    public String getTrip_id() {
+        return trip_id;
+    }
+
+    public void setTrip_id(String trip_id) {
+        this.trip_id = trip_id;
     }
 
     public String getRegion() {

@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -53,8 +54,13 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
                         requestModel.setState(0);
                         requestModel.setTo(trips.getDriver_id());
                         requestModel.setName(user.name);
+                        requestModel.setTypeCar(trips.getCar());
                         requestModel.setMessge("new Request");
-                        FirebaseDatabase.getInstance().getReference("Requests").child(trips.getDriver_id()).push().setValue(requestModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        requestModel.setTrip_id(trips.getTrip_id());
+                        DatabaseReference push = FirebaseDatabase.getInstance().getReference("Requests").push();
+                        String req_id=push.getKey();
+                        requestModel.setRequest_id(req_id);
+                                push.setValue(requestModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){

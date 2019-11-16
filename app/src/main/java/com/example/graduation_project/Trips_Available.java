@@ -62,7 +62,7 @@ public class Trips_Available extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
                             if(dataSnapshot1.exists()){
-                                for (DataSnapshot trip : dataSnapshot1.getChildren()){
+                                for (final DataSnapshot trip : dataSnapshot1.getChildren()){
 
                                     final Trips  trips=trip.getValue(Trips.class);
                                     if(trips.rallyPoint.equals(Rallypoint)
@@ -82,6 +82,8 @@ public class Trips_Available extends AppCompatActivity {
                                                     trips_class.setName(user.name);
                                                     trips_class.setCar(trips.cars.getCarTyps());
                                                     trips_class.setDriver_id(key);
+                                                    trips_class.setTrip_id(trips.getTrip_id());
+
                                                     tripsList.add(trips_class);
                                                     adapter.notifyDataSetChanged();
 
