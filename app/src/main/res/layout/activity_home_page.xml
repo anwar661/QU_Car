@@ -45,6 +45,20 @@
         android:text="Add a trip"
         android:fontFamily="serif"/>
 
+    <Button
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/at"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="8dp"
+        android:background="#B5DCE2"
+        android:onClick="req"
+        android:text="Requsets"
+        android:fontFamily="serif"/>
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="550dp"

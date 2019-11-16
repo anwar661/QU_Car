@@ -34,4 +34,8 @@ public class home_page extends AppCompatActivity {
         Intent i=new Intent(this,Setting.class);
         startActivity(i);
     }
+
+    public void req(View view) {
+        startActivity(new Intent(home_page.this,Requests.class));
+    }
 }

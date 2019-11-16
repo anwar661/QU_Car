@@ -9,6 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 
 public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHolder> {
@@ -28,9 +36,45 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
     @Override
     public void onBindViewHolder(@NonNull TripsViewHolder holder,
                                  int position) {
-        Trips_class trips = tripstList.get(position);
+        final Trips_class trips = tripstList.get(position);
         holder.textViewName.setText("Name: " +trips.name);
         holder.textViewCar.setText("Car Type: " + trips.getCar());
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               final String user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                FirebaseDatabase.getInstance().getReference("Users").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        User user=dataSnapshot.getValue(User.class);
+                       final RequestModel requestModel=new RequestModel();
+                        requestModel.setFrom(user_id);
+                        requestModel.setState(0);
+                        requestModel.setTo(trips.getDriver_id());
+                        requestModel.setName(user.name);
+                        requestModel.setMessge("new Request");
+                        FirebaseDatabase.getInstance().getReference("Requests").child(trips.getDriver_id()).push().setValue(requestModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+
+                                }
+                            }
+                        });
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+
     }
     @Override
     public int getItemCount() {
@@ -38,10 +82,12 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
     }
     class TripsViewHolder extends RecyclerView.ViewHolder {
         TextView textViewName, textViewCar;
+        View view;
         public TripsViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
             textViewCar = itemView.findViewById(R.id.text_view_car_type);
+            view=itemView;
         }
     }
 

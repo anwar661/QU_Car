@@ -1,28 +1,75 @@
 package com.example.graduation_project;
 
 public class Trips {
-    public String Region,StratPoint,RallyPoint,Time,EndPoint,PNumber;
+    public String region,stratPoint,rallyPoint,time,endPoint,pNumber;
+    public  Cars cars;
     public Trips(){
 
     }
-    public Trips( String Region,String StratPoint,String Time,String RallyPoint ,String EndPoint,String PNumber) {
-        this.Region = Region;
-        this.StratPoint = StratPoint;
-        this.Time = Time;
-        this.RallyPoint = RallyPoint;
-        this.EndPoint = EndPoint;
-        this.PNumber = PNumber;
+
+    public Trips(String region, String stratPoint, String rallyPoint, String time, String endPoint, String pNumber, Cars cars) {
+        this.region = region;
+        this.stratPoint = stratPoint;
+        this.rallyPoint = rallyPoint;
+        this.time = time;
+        this.endPoint = endPoint;
+        this.pNumber = pNumber;
+        this.cars = cars;
     }
 
-    @Override
-    public String toString() {
-        return "Trips{" +
-                "Region='" + Region + '\'' +
-                ", StratPoint='" + StratPoint + '\'' +
-                ", RallyPoint='" + RallyPoint + '\'' +
-                ", Time='" + Time + '\'' +
-                ", EndPoint='" + EndPoint + '\'' +
-                ", PNumber='" + PNumber + '\'' +
-                '}';
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getStratPoint() {
+        return stratPoint;
+    }
+
+    public void setStratPoint(String stratPoint) {
+        this.stratPoint = stratPoint;
+    }
+
+    public String getRallyPoint() {
+        return rallyPoint;
+    }
+
+    public void setRallyPoint(String rallyPoint) {
+        this.rallyPoint = rallyPoint;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getEndPoint() {
+        return endPoint;
+    }
+
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
+    }
+
+    public String getpNumber() {
+        return pNumber;
+    }
+
+    public void setpNumber(String pNumber) {
+        this.pNumber = pNumber;
+    }
+
+    public Cars getCars() {
+        return cars;
+    }
+
+    public void setCars(Cars cars) {
+        this.cars = cars;
     }
 }

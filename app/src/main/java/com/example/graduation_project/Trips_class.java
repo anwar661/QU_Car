@@ -2,7 +2,18 @@ package com.example.graduation_project;
 
 public class Trips_class {
 
-    public String name, car;
+    public String name;
+    public String car;
+
+    public String getDriver_id() {
+        return driver_id;
+    }
+
+    public void setDriver_id(String driver_id) {
+        this.driver_id = driver_id;
+    }
+
+    public String driver_id;
     public Trips_class() {
     }
     public String getName() {

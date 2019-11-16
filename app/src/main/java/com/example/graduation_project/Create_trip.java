@@ -140,30 +140,6 @@ public class Create_trip extends Activity implements View.OnClickListener{
         if (TextUtils.isEmpty(PNumber)) {
             Toast.makeText(this, "Number of passenger is required", Toast.LENGTH_LONG).show();
         }
-        progressBar.setVisibility(View.VISIBLE);
-
-
-        Trips trips = new Trips(
-                Region,
-                StratPoint,
-                Time,
-                RallyPoint,
-                EndPoint,
-                PNumber
-        );
-        FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()) .child("Trips")
-                .push().setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task){
-                progressBar.setVisibility(View.GONE);
-                if (task.isSuccessful()) {
-                    Toast.makeText(Create_trip.this, "Trip added", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(Create_trip.this, "Can't add  ", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
 
         if (CarTyps.isEmpty()) {
             carType.setError("Car type required");
@@ -183,19 +159,35 @@ public class Create_trip extends Activity implements View.OnClickListener{
                 CarCollor,
                 Carplate
         );
+
+        progressBar.setVisibility(View.VISIBLE);
+
+
+
+
+        Trips trips = new Trips();
+        trips.setCars(cars);
+        trips.setEndPoint(EndPoint);
+        trips.setpNumber(PNumber);
+        trips.setRegion(Region);
+        trips.setRallyPoint(RallyPoint);
+        trips.setStratPoint(StratPoint);
+        trips.setTime(Time);
         FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Cars")
-                .push().setValue(cars).addOnCompleteListener(new OnCompleteListener<Void>() {
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()) .child("Trips")
+                .push().setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task){
                 progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
-                    Toast.makeText(Create_trip.this, "Car information added", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Create_trip.this, "Trip added", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(Create_trip.this, "Can't add Car info ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Create_trip.this, "Can't add  ", Toast.LENGTH_LONG).show();
                 }
             }
         });
+
+
 
             Toast.makeText(Create_trip.this, "Trip is created", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getApplicationContext(), Requests.class));

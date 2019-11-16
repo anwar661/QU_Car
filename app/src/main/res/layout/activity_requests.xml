@@ -5,81 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Requests">
-    <ImageView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/requests"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/ch"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
-        android:fontFamily="serif"
-        android:text="Requests"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#C1948E8E"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="320dp"
-        android:fontFamily="serif"
-        android:text="Name:\ncollege:\nType of car:\n" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accept"
-        android:layout_marginLeft="10dp"
-        android:background="#B5DCE2"
-        android:layout_alignParentTop="true"
-        android:fontFamily="serif"
-        android:layout_marginTop="380dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reject"
-        android:layout_marginTop="380dp"
-        android:background="#B5DCE2"
-        android:fontFamily="serif"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="440dp"
-        android:text="Name:\ncollege:\nType of car:\n" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:layout_marginLeft="10dp"
-        android:layout_alignParentTop="true"
-        android:background="#B5DCE2"
-        android:fontFamily="serif"
-        android:text="Accept" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reject"
-        android:layout_marginTop="500dp"
-        android:background="#B5DCE2"
-        android:fontFamily="serif"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-
-
+        android:layout_height="match_parent" />
 </RelativeLayout>

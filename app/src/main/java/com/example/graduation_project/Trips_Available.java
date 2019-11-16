@@ -41,12 +41,7 @@ public class Trips_Available extends AppCompatActivity {
         final String AccessPoint = intent.getStringExtra("AccessPoint");
         final String NumberofPassengers = intent.getStringExtra("NumberofPassengers");
         final String Rallypoint = intent.getStringExtra("Rallypoint");
-        Log.d("MUTEE",Region);
-        Log.d("MUTEE",StartPoint);
-        Log.d("MUTEE",TimetoGo);
-        Log.d("MUTEE",AccessPoint);
-        Log.d("MUTEE",NumberofPassengers);
-        Log.d("MUTEE",Rallypoint);
+
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -70,40 +65,27 @@ public class Trips_Available extends AppCompatActivity {
                                 for (DataSnapshot trip : dataSnapshot1.getChildren()){
 
                                     final Trips  trips=trip.getValue(Trips.class);
-                                    Log.d("MUTEE",trips.toString());
-                                    if(trips.RallyPoint.equals(Rallypoint)
-                                            &&trips.PNumber.equals(NumberofPassengers)
-                                            &&trips.EndPoint.equals(AccessPoint)
-                                            &&trips.StratPoint.equals(StartPoint)
-                                            &&trips.Region.equals(Region)
-                                            &&trips.Time.equals(TimetoGo)){
+                                    if(trips.rallyPoint.equals(Rallypoint)
+                                            &&trips.getpNumber().equals(NumberofPassengers)
+                                            &&trips.getEndPoint().equals(AccessPoint)
+                                            &&trips.getStratPoint().equals(StartPoint)
+                                            &&trips.getRegion().equals(Region)
+                                            &&trips.getTime().equals(TimetoGo)){
                                         Log.d("MUTEE","MATCH");
+
                                         FirebaseDatabase.getInstance().getReference("Users").child(key).addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
                                                 if(dataSnapshot2.exists()){
                                                     final User user=dataSnapshot2.getValue(User.class);
+                                                    Trips_class trips_class=new Trips_class();
+                                                    trips_class.setName(user.name);
+                                                    trips_class.setCar(trips.cars.getCarTyps());
+                                                    trips_class.setDriver_id(key);
+                                                    tripsList.add(trips_class);
+                                                    adapter.notifyDataSetChanged();
 
-                                                    FirebaseDatabase.getInstance().getReference("Users").child(key).child("Cars").addListenerForSingleValueEvent(new ValueEventListener() {
-                                                        @Override
-                                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot3) {
-                                                            if(dataSnapshot3.exists()){
-                                                                Cars cars=dataSnapshot3.getValue(Cars.class);
-                                                                Trips_class trips_class=new Trips_class();
-                                                                trips_class.setName(user.name);
-                                                                trips_class.setCar(cars.CarTyps);
-                                                                tripsList.add(trips_class);
-                                                                adapter.notifyDataSetChanged();
 
-                                                            }
-
-                                                        }
-
-                                                        @Override
-                                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                                        }
-                                                    });
                                                 }
                                             }
 
