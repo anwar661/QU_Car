@@ -19,11 +19,48 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:fontFamily="serif"
+        android:id="@+id/info"
         android:layout_marginTop="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:layout_margin="16dp"
+        android:layout_below="@id/info"
+        android:text="Name"
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:layout_margin="16dp"
+        android:layout_below="@id/name"
+        android:text="RallyPont"
+        android:id="@+id/rally"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:layout_margin="16dp"
+        android:layout_below="@id/rally"
+        android:text="Phone"
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
 
@@ -47,7 +84,10 @@
             android:text="Chat"
             android:textStyle="bold" />
 
+
+
         <Button
+            android:onClick="Call"
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -58,13 +58,19 @@ public class Trips_Available extends AppCompatActivity {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
 
                     final String key=child.getKey();
-                    FirebaseDatabase.getInstance().getReference("Users").child(key).child("Trips").addValueEventListener(new ValueEventListener() {
+                    FirebaseDatabase.getInstance().
+                            getReference("Users").child(key)
+                            .child("Trips").child(key).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
                             if(dataSnapshot1.exists()){
-                                for (final DataSnapshot trip : dataSnapshot1.getChildren()){
 
-                                    final Trips  trips=trip.getValue(Trips.class);
+
+                                    final Trips  trips=dataSnapshot1.getValue(Trips.class);
+                                if (trips == null) {
+                                    Log.d("MUTEE","NULL");
+                                }
+
                                     if(trips.rallyPoint.equals(Rallypoint)
                                             &&trips.getpNumber().equals(NumberofPassengers)
                                             &&trips.getEndPoint().equals(AccessPoint)
@@ -100,7 +106,7 @@ public class Trips_Available extends AppCompatActivity {
                                         adapter.notifyDataSetChanged();
 
                                     }
-                                }
+
                             }
                         }
 

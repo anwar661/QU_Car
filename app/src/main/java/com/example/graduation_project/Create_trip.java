@@ -174,11 +174,11 @@ public class Create_trip extends Activity implements View.OnClickListener{
         trips.setStratPoint(StratPoint);
         trips.setTime(Time);
         DatabaseReference push = FirebaseDatabase.getInstance().getReference("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Trips")
-                .push();
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Trips");
+
 
         trips.setTrip_id(mAuth.getCurrentUser().getUid());
-        push.setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
+        push.child(mAuth.getCurrentUser().getUid()).setValue(trips).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task){
                 progressBar.setVisibility(View.GONE);
@@ -192,9 +192,6 @@ public class Create_trip extends Activity implements View.OnClickListener{
 
 
 
-            Toast.makeText(Create_trip.this, "Trip is created", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(getApplicationContext(), Requests.class));
-            finish();
 
 
 

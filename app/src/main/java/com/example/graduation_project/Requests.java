@@ -45,7 +45,7 @@ public class Requests extends AppCompatActivity {
         requests.setLayoutManager(new LinearLayoutManager(this));
         user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
         query= FirebaseDatabase.getInstance().getReference("Requests");
-        requestsAdapter=new RequestsAdapter();
+        requestsAdapter=new RequestsAdapter(this);
         requests.setAdapter(requestsAdapter);
 
 

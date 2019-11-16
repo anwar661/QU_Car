@@ -1,5 +1,7 @@
 package com.example.graduation_project;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,10 +36,12 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
             return oldItem.getTrip_id().equals(newItem.getTrip_id());
         }
     };
+    Context context;
     String user_id;
-    public  RequestsAdapter(){
+    public  RequestsAdapter(Context context){
         super(callback);
         user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        this.context=context;
     }
 
 
@@ -71,7 +75,7 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
             });
             FirebaseDatabase.getInstance().
                     getReference("Users").child(model.to)
-                    .child("Trips").child(model.getTrip_id()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    .child("Trips").child(model.getTo()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Trips trips=dataSnapshot.getValue(Trips.class);
@@ -84,6 +88,21 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
                 }
             });
             holder.car_type.setVisibility(View.GONE);
+            holder.view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(model.getState()==1){
+                        Intent intent=new Intent(context,Passenger_information.class);
+                        intent.putExtra("from",model.getFrom());
+                        intent.putExtra("rally",holder.message.getText().toString());
+                        context.startActivity(intent);
+                    }
+
+                }
+            });
+
+
+
 
 
         }else {
@@ -103,7 +122,31 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
             });
 
             holder.car_type.setText("Car Type : "+model.getTypeCar());
-            holder.message.setVisibility(View.GONE);
+            if(model.getState()==0){
+                holder.message.setText("Pending");
+            }
+
+            if(model.getState()==1){
+                holder.message.setText("Your Request Accepted");
+            }
+
+            if(model.getState()==2){
+                holder.message.setText("Your Request Rejected .. please Select another Driver");
+            }
+
+            holder.view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(model.getState()==1){
+                        Intent intent=new Intent(context,Driver_information.class);
+                        intent.putExtra("id",model.to);
+
+                        context.startActivity(intent);
+                    }
+
+                }
+            });
+
         }
         holder.btn_accept.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +155,19 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
                 map.put("state",1);
                 map.put("message"," Accepted");
                 FirebaseDatabase.getInstance().getReference("Requests").child(model.getRequest_id()).updateChildren(map);
+                notifyDataSetChanged();
+                holder.view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(model.getState()==1){
+                            Intent intent=new Intent(context,Passenger_information.class);
+                            intent.putExtra("from",model.getFrom());
+                            intent.putExtra("rally",holder.message.getText().toString());
+                            context.startActivity(intent);
+                        }
+
+                    }
+                });
 
             }
         });
@@ -123,6 +179,7 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
                 map.put("state",2);
                 map.put("message"," Rejected");
                 FirebaseDatabase.getInstance().getReference("Requests").child(model.getRequest_id()).updateChildren(map);
+                notifyDataSetChanged();
 
             }
         });
@@ -134,6 +191,7 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
         TextView car_type,message,name;
         Button btn_reject,btn_accept;
         LinearLayout layout;
+        View view;
 
         public RequstsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -143,6 +201,7 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
             btn_accept=itemView.findViewById(R.id.btn_accept);
             layout=itemView.findViewById(R.id.layout);
             btn_reject=itemView.findViewById(R.id.btn_reject);
+            view=itemView;
         }
     }
 }
