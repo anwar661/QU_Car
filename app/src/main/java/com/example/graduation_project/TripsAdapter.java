@@ -1,10 +1,13 @@
 package com.example.graduation_project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +21,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHolder> {
     private Context mCtx;
     private List<Trips_class> tripstList;
+    private String numberOfPassenger;
+
+    public String getNumberOfPassenger() {
+        return numberOfPassenger;
+    }
+
+    public void setNumberOfPassenger(String numberOfPassenger) {
+        this.numberOfPassenger = numberOfPassenger;
+    }
+
     public TripsAdapter(Context mCtx, List<Trips_class>
             tripstList) {
         this.mCtx = mCtx;
@@ -40,16 +54,16 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
         final Trips_class trips = tripstList.get(position);
         holder.textViewName.setText("Name: " +trips.name);
         holder.textViewCar.setText("Car Type: " + trips.getCar());
-        holder.view.setOnClickListener(new View.OnClickListener() {
+        holder.send_request_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               final String user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                final String user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                 FirebaseDatabase.getInstance().getReference("Users").child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         User user=dataSnapshot.getValue(User.class);
-                       final RequestModel requestModel=new RequestModel();
+                        final RequestModel requestModel=new RequestModel();
                         requestModel.setFrom(user_id);
                         requestModel.setState(0);
                         requestModel.setTo(trips.getDriver_id());
@@ -60,18 +74,17 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
                         DatabaseReference push = FirebaseDatabase.getInstance().getReference("Requests").push();
                         String req_id=push.getKey();
                         requestModel.setRequest_id(req_id);
-                                push.setValue(requestModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        push.setValue(requestModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
 
+                                    Intent intent=new Intent(mCtx,Requests.class);
+                                    mCtx.startActivity(intent);
                                 }
                             }
                         });
-
-
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -79,8 +92,6 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
                 });
             }
         });
-
-
     }
     @Override
     public int getItemCount() {
@@ -88,14 +99,13 @@ public class TripsAdapter extends RecyclerView.Adapter<TripsAdapter.TripsViewHol
     }
     class TripsViewHolder extends RecyclerView.ViewHolder {
         TextView textViewName, textViewCar;
-        View view;
+        Button send_request_btn;
         public TripsViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
             textViewCar = itemView.findViewById(R.id.text_view_car_type);
-            view=itemView;
+            send_request_btn = itemView.findViewById(R.id.send_request_btn);
+
         }
     }
-
-
 }

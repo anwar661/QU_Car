@@ -20,9 +20,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.List;
-
 public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.RequstsViewHolder> {
 
     public static DiffUtil.ItemCallback<RequestModel> callback =new DiffUtil.ItemCallback<RequestModel>() {
@@ -38,13 +35,21 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
     };
     Context context;
     String user_id;
+    CallBack callBack;
+
+    public CallBack getCallBack() {
+        return callBack;
+    }
+
+    public void setCallBack(CallBack callBack) {
+        this.callBack = callBack;
+    }
+
     public  RequestsAdapter(Context context){
         super(callback);
         user_id= FirebaseAuth.getInstance().getCurrentUser().getUid();
         this.context=context;
     }
-
-
 
     @NonNull
     @Override
@@ -55,8 +60,6 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
     @Override
     public void onBindViewHolder(@NonNull final RequstsViewHolder holder, int position) {
         final RequestModel model=getItem(position);
-
-
 
         if(model.getTo().equals(user_id)){
             // driver
@@ -137,10 +140,17 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
             holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(model.getState()==1){
+                    if(model.getState()==1 && model.getFrom().equals(user_id)){
                         Intent intent=new Intent(context,Driver_information.class);
                         intent.putExtra("id",model.to);
 
+                        context.startActivity(intent);
+                    }
+
+                    if(model.getState()==1 && model.getTo().equals(user_id)){
+                        Intent intent=new Intent(context,Passenger_information.class);
+                        intent.putExtra("from",model.getFrom());
+                        intent.putExtra("rally",holder.message.getText().toString());
                         context.startActivity(intent);
                     }
 
@@ -151,23 +161,11 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
         holder.btn_accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String,Object> map=new HashMap<>();
-                map.put("state",1);
-                map.put("message"," Accepted");
-                FirebaseDatabase.getInstance().getReference("Requests").child(model.getRequest_id()).updateChildren(map);
-                notifyDataSetChanged();
-                holder.view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(model.getState()==1){
-                            Intent intent=new Intent(context,Passenger_information.class);
-                            intent.putExtra("from",model.getFrom());
-                            intent.putExtra("rally",holder.message.getText().toString());
-                            context.startActivity(intent);
-                        }
 
-                    }
-                });
+               if(callBack!=null){
+                   callBack.onAccept(model,"accpet");
+               }
+
 
             }
         });
@@ -175,14 +173,14 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
         holder.btn_reject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String,Object> map=new HashMap<>();
-                map.put("state",2);
-                map.put("message"," Rejected");
-                FirebaseDatabase.getInstance().getReference("Requests").child(model.getRequest_id()).updateChildren(map);
-                notifyDataSetChanged();
+
+             if(callBack!=null){
+                 callBack.onAccept(model,"reject");
+             }
 
             }
         });
+
 
     }
 
@@ -203,5 +201,10 @@ public class RequestsAdapter extends ListAdapter<RequestModel, RequestsAdapter.R
             btn_reject=itemView.findViewById(R.id.btn_reject);
             view=itemView;
         }
+    }
+
+    interface  CallBack {
+        void  onAccept(RequestModel requestModel,String from);
+
     }
 }

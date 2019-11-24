@@ -16,13 +16,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name: Ahmad "
+                android:fontFamily="serif"
+                android:textColor="#F2747171"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
             <TextView
                 android:id="@+id/text_view_car_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Car type: Camry"
+                android:fontFamily="serif"
+                android:textColor="#F2747171"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <Button
+                android:layout_margin="4dp"
+                android:id="@+id/send_request_btn"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send Request"
+                android:onClick="req"
+                android:background="#B5DCE2"
+                android:fontFamily="serif"
+                android:textColor="#F2747171" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

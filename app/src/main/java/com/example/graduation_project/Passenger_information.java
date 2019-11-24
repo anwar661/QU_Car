@@ -1,16 +1,14 @@
 package com.example.graduation_project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,8 +35,8 @@ public class Passenger_information extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     User user=dataSnapshot.getValue(User.class);
-                    name.setText(user.name);
-                    phone.setText(user.phone);
+                    name.setText("Name: "+user.name);
+                    phone.setText("Phone Number: "+user.phone);
                 }
 
                 @Override
@@ -48,15 +46,28 @@ public class Passenger_information extends AppCompatActivity {
             });
         }
     }
-    public void Call (View view){
-        Intent Call =new Intent(Intent.ACTION_CALL);
-        Call.setData(Uri.parse("tel:"+phone.getText().toString()));
-        if (ActivityCompat.checkSelfPermission(Passenger_information.this,
-                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        startActivity(Call);
+    public void dial(View V) {
+        EditText ed = (EditText) findViewById(R.id.phoneNumInp);
+        String num = "tel:" + ed.getText().toString();
+        Intent ite = new Intent(Intent.ACTION_DIAL, Uri.parse(num));
+        startActivity(ite);
+
     }
+
+    public void sendSMS(View V) {
+        EditText ed = (EditText) findViewById(R.id.phoneNumInp);
+        String url = "smsto:" + ed.getText().toString();
+        Uri uri = Uri.parse(url);
+        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+        startActivity(it);
+
+    }
+    public void cost(View V) {;
+        Intent i=new Intent(this,Cost_calculation.class);
+        startActivity(i);
+
+    }
+
 
 }
 

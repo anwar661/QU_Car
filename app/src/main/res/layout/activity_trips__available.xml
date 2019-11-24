@@ -16,14 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"/>
+        android:layout_marginTop="330dp"/>
 
     <TextView
         style="@android:style/Widget.TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="300dp"
         android:fontFamily="serif"
         android:text="Available Trips "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"

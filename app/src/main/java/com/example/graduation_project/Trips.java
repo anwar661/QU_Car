@@ -61,6 +61,20 @@ public class Trips {
         return time;
     }
 
+    @Override
+    public String toString() {
+        return "Trips{" +
+                "region='" + region + '\'' +
+                ", stratPoint='" + stratPoint + '\'' +
+                ", rallyPoint='" + rallyPoint + '\'' +
+                ", time='" + time + '\'' +
+                ", endPoint='" + endPoint + '\'' +
+                ", pNumber='" + pNumber + '\'' +
+                ", trip_id='" + trip_id + '\'' +
+                ", cars=" + cars +
+                '}';
+    }
+
     public void setTime(String time) {
         this.time = time;
     }

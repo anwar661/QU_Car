@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,28 +19,21 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Create_trip extends Activity implements View.OnClickListener{
-    TextView Sregoin;
     Spinner Regoinn;
-    TextView Sstart;
     Spinner startpoint;
-    TextView Stime;
     Spinner Timee;
-    TextView Srally;
     Spinner Rally;
-    TextView Send;
     Spinner End;
-    TextView Snumber;
     Spinner numberP;
     Button create;
     EditText carType, carColor, pNumper;
-    DatabaseReference databaseTrips;
-    Toolbar toolbar;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
 
@@ -58,7 +52,24 @@ public class Create_trip extends Activity implements View.OnClickListener{
         carColor = findViewById(R.id.edt1);
         pNumper = findViewById(R.id.edt2);
         progressBar = findViewById(R.id.progressBar);
-
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        startActivity(new Intent(Create_trip.this,home_page.class));
+                        break;
+                    case R.id.action_req:
+                        startActivity(new Intent(Create_trip.this,Requests.class));
+                        break;
+                    case R.id.action_set:
+                        startActivity(new Intent(Create_trip.this,Setting.class));
+                        break;
+                }
+                return true;
+            }
+        });
 
         Spinner mySpinner1 =findViewById(R.id.spinner1);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(Create_trip.this,

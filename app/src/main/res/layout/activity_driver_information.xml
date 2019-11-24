@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Driver information"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="serif"
         android:id="@+id/info"
         android:textColor="#807A7A"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -28,25 +28,22 @@
 
 
     <TextView
-        android:gravity="center"
-        android:textSize="26sp"
-        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="110dp"
+        android:textSize="15sp"
         android:fontFamily="serif"
-        android:layout_margin="16dp"
         android:layout_below="@id/info"
         android:text="Name"
+        android:layout_marginTop="10dp"
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
-
     <TextView
-        android:gravity="center"
-        android:textSize="26sp"
-        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="110dp"
+        android:textSize="15sp"
         android:fontFamily="serif"
-        android:layout_margin="16dp"
         android:layout_below="@id/name"
         android:text="Phone"
         android:id="@+id/phone"
@@ -54,11 +51,10 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:gravity="center"
-        android:textSize="26sp"
-        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="110dp"
+        android:textSize="15sp"
         android:fontFamily="serif"
-        android:layout_margin="16dp"
         android:layout_below="@id/phone"
         android:text="car"
         android:id="@+id/car_type"
@@ -66,11 +62,10 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:gravity="center"
-        android:textSize="26sp"
-        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="110dp"
+        android:textSize="15sp"
         android:fontFamily="serif"
-        android:layout_margin="16dp"
         android:layout_below="@id/car_type"
         android:text="car color"
         android:id="@+id/car_color"
@@ -78,27 +73,47 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:gravity="center"
-        android:textSize="26sp"
-        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="110dp"
+        android:textSize="15sp"
         android:fontFamily="serif"
-        android:layout_margin="16dp"
         android:layout_below="@id/car_color"
         android:text="car number"
         android:id="@+id/car_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="If you want to contact with driver\n enter driver phone number"
+        android:textSize="11sp"
+        android:fontFamily="serif"
+        android:textColor="#807A7A"
+        android:layout_marginTop="440dp" />
 
+    <EditText
+        android:id="@+id/phoneNumInp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="233dp"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="16dp"
         android:paddingLeft="16dp"
-        android:layout_below="@id/car_number"
         android:paddingRight="16dp"
-      >
+        android:paddingTop="550dp">
 
         <Button
             android:id="@+id/button4"
@@ -106,9 +121,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_weight="1"
-            android:text="Chat"
-            android:fontFamily="serif"
             android:background="#B5DCE2"
+            android:fontFamily="serif"
+            android:text="Send SMS"
+            android:onClick="sendSMS"
             android:textStyle="bold" />
 
         <Button
@@ -122,10 +138,30 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
+            android:onClick="dial"
             android:text="Call"
             android:fontFamily="serif"
             android:background="#B5DCE2"
             android:textStyle="bold" />
+
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="137dp"
+        android:layout_marginLeft="137dp"
+        android:layout_marginBottom="50dp"
+        android:layout_weight="1"
+        android:text="Calculate the price"
+        android:onClick="cost"
+        android:fontFamily="serif"
+        android:background="#B5DCE2"
+        android:textStyle="bold" />
 
 </RelativeLayout>

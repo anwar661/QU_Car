@@ -17,8 +17,9 @@
         <item>East of Unaizah</item>
         <item>North of Unaizah</item>
         <item>South of Unaizah</item>
-        <item>North of Unaizah</item>
+        <item>West of Unaizah</item>
         <item>Alrass</item>
+        <item>Qussaim university</item>
     </string-array>
 
     <string-array name="TimetoGo">
@@ -34,32 +35,33 @@
     </string-array>
 
     <string-array name="AccessPoint">
-        <item>Qussaim university</item>
-        <item>King Abdullah Park</item>
-        <item>King Khalid Park</item>
-        <item>Al Busar Park</item>
-        <item>Al Othaim Mall</item>
-        <item>Rasheed Dome Market</item>
-        <item>Oasis Mall</item>
-        <item>Al Danube Supermarket</item>
+        <item>King Abdullah Park(Buraydah)</item>
+        <item>King Khalid Park(Buraydah)</item>
+        <item>AlBusar Park(Buraydah)</item>
+        <item>AlOthaim Mall(Buraydah)</item>
+        <item>Rasheed Dome Market(Buraydah)</item>
+        <item>Oasis Mall(Alrass)</item>
+        <item>AlDanube Supermarket(Unaizah)</item>
         <item>Unaizah Mall</item>
-        <item>Al Othaim Mall Unaizah</item>
-        <item>Ghada Park</item>
+        <item>AlOthaim Mall(Unaizah)</item>
+        <item>Ghada Park(Unaizah)</item>
         <item>Unaizah House for Folklores</item>
+        <item>Qussaim university</item>
     </string-array>
 
     <string-array name="Rallypoint">
-        <item>King Abdullah Park</item>
-        <item>King Khalid Park</item>
-        <item>Al Busar Park</item>
-        <item>Al Othaim Mall</item>
-        <item>Rasheed Dome Market</item>
-        <item>Oasis Mall</item>
-        <item>Al Danube Supermarket</item>
+        <item>King Abdullah Park(Buraydah)</item>
+        <item>King Khalid Park(Buraydah)</item>
+        <item>AlBusar Park(Buraydah)</item>
+        <item>AlOthaim Mall(Buraydah)</item>
+        <item>Rasheed Dome Market(Buraydah)</item>
+        <item>Oasis Mall(Alrass)</item>
+        <item>AlDanube Supermarket(Unaizah)</item>
         <item>Unaizah Mall</item>
-        <item>Al Othaim Mall Unaizah</item>
-        <item>Ghada Park</item>
+        <item>AlOthaim Mall(Unaizah)</item>
+        <item>Ghada Park(Unaizah)</item>
         <item>Unaizah House for Folklores</item>
+        <item>Qussaim university</item>
     </string-array>
 
     <string-array name="NumberofPassengers">
@@ -68,15 +70,15 @@
         <item>3</item>
         <item>4</item>
     </string-array>
-    <string name="input_error_name">name required</string>
-    <string name="input_error_email">email required</string>
-    <string name="input_error_password">password required</string>
-    <string name="input_error_phone">phone required</string>
-    <string name="input_error_password_length">password should be atleast 6 characters long</string>
+    <string name="input_error_name">Name required</string>
+    <string name="input_error_email">Email required</string>
+    <string name="input_error_password">Password required</string>
+    <string name="input_error_phone">Phone required</string>
+    <string name="input_error_password_length">Password should be atleast 6 characters long</string>
     <string name="input_error_id_length">ID should be atleast 9 number</string>
-    <string name="input_error_phone_invalid">enter a valid phone number</string>
+    <string name="input_error_phone_invalid">Enter a valid phone number</string>
     <string name="registration_success">Registered Successfully</string>
-    <string name="input_error_email_invalid">enter a valid email</string>
+    <string name="input_error_email_invalid">Enter a valid email</string>
     <string name="input_error_type">Car type required</string>
     <string name="input_error_color">Car color required</string>
     <string name="input_error_plate">Car plate number required</string>

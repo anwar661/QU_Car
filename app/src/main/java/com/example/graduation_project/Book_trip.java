@@ -2,12 +2,16 @@ package com.example.graduation_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Book_trip extends AppCompatActivity {
 
@@ -17,7 +21,24 @@ public class Book_trip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_trip);
-
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        startActivity(new Intent(Book_trip.this,home_page.class));
+                        break;
+                    case R.id.action_req:
+                        startActivity(new Intent(Book_trip.this,Requests.class));
+                        break;
+                    case R.id.action_set:
+                        startActivity(new Intent(Book_trip.this,Setting.class));
+                        break;
+                }
+                return true;
+            }
+        });
          mySpinner1 =findViewById(R.id.spinner1);
         /*ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(Book_trip.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Region));
@@ -74,10 +95,10 @@ public class Book_trip extends AppCompatActivity {
         i.putExtra("AccessPoint", mySpinner_4);
         String mySpinner_5 =(String) mySpinner5.getSelectedItem();//NumberofPassengers
 
-
+       // i.putExtra("NumberofPassengers", mySpinner_5);
 
         String mySpinner_6 =(String) mySpinner6.getSelectedItem();//Rallypoint
-        i.putExtra("NumberofPassengers", mySpinner_5);
+
         i.putExtra("Rallypoint", mySpinner_6);
         startActivity(i);
     }

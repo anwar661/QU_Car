@@ -37,4 +37,6 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.firebaseui:firebase-ui-database:6.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.android.support:design:29.0.0'
 }

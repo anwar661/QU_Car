@@ -5,12 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home_page">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="#FFFFFF"
+        app:menu="@menu/bottom_nav_menu" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
-    <!--android:background="@drawable/ch"-->
+        android:background="@drawable/ch"/>
 
 
     <Button
@@ -45,21 +52,6 @@
         android:text="Add a trip"
         android:fontFamily="serif"/>
 
-    <Button
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/at"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="8dp"
-        android:background="#B5DCE2"
-        android:onClick="req"
-        android:text="Requsets"
-        android:fontFamily="serif"/>
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="550dp"
@@ -68,31 +60,5 @@
         android:layout_marginEnd="30dp"
         android:layout_marginTop="250dp"
         app:srcCompat="@drawable/ob" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" >
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:onClick="set"
-            app:srcCompat="@drawable/ser" />
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="320dp"
-            android:background="@android:color/transparent"
-            android:onClick="out"
-            app:srcCompat="@drawable/logout" />
-    </androidx.appcompat.widget.Toolbar>
-
-
 
 </RelativeLayout>

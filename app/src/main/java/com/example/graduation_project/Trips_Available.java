@@ -3,6 +3,7 @@ package com.example.graduation_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -39,7 +41,7 @@ public class Trips_Available extends AppCompatActivity {
         final String StartPoint = intent.getStringExtra("StartPoint");
         final String TimetoGo = intent.getStringExtra("TimetoGo");
         final String AccessPoint = intent.getStringExtra("AccessPoint");
-        final String NumberofPassengers = intent.getStringExtra("NumberofPassengers");
+        //final String NumberofPassengers = intent.getStringExtra("NumberofPassengers");
         final String Rallypoint = intent.getStringExtra("Rallypoint");
 
 
@@ -58,78 +60,75 @@ public class Trips_Available extends AppCompatActivity {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
 
                     final String key=child.getKey();
+
                     FirebaseDatabase.getInstance().
-                            getReference("Users").child(key)
-                            .child("Trips").child(key).addValueEventListener(new ValueEventListener() {
+                            getReference("Users").child(key).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                            if(dataSnapshot1.exists()){
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
+                            final User user=dataSnapshot2.getValue(User.class);
+                            Log.d("QU",user.getName());
+                            if(active){
+                                FirebaseDatabase.getInstance().
+                                        getReference("Users").child(key)
+                                        .child("Trips").child(key).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                                        if(dataSnapshot1.exists()){
 
+                                            final Trips  trips=dataSnapshot1.getValue(Trips.class);
 
-                                    final Trips  trips=dataSnapshot1.getValue(Trips.class);
-                                if (trips == null) {
-                                    Log.d("MUTEE","NULL");
-                                }
+                                            if(trips.rallyPoint.equals(Rallypoint)
+                                                    &&Integer.parseInt(trips.getpNumber())>0
+                                                    &&trips.getEndPoint().equals(AccessPoint)
+                                                    &&trips.getStratPoint().equals(StartPoint)
+                                                    &&trips.getRegion().equals(Region)
+                                                    &&trips.getTime().equals(TimetoGo)){
 
-                                    if(trips.rallyPoint.equals(Rallypoint)
-                                            &&trips.getpNumber().equals(NumberofPassengers)
-                                            &&trips.getEndPoint().equals(AccessPoint)
-                                            &&trips.getStratPoint().equals(StartPoint)
-                                            &&trips.getRegion().equals(Region)
-                                            &&trips.getTime().equals(TimetoGo)){
-                                        Log.d("MUTEE","MATCH");
-
-                                        FirebaseDatabase.getInstance().getReference("Users").child(key).addListenerForSingleValueEvent(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
-                                                if(dataSnapshot2.exists()){
-                                                    final User user=dataSnapshot2.getValue(User.class);
-                                                    Trips_class trips_class=new Trips_class();
-                                                    trips_class.setName(user.name);
-                                                    trips_class.setCar(trips.cars.getCarTyps());
-                                                    trips_class.setDriver_id(key);
-                                                    trips_class.setTrip_id(trips.getTrip_id());
-
-                                                    tripsList.add(trips_class);
-                                                    adapter.notifyDataSetChanged();
-
-
-                                                }
+                                                Trips_class trips_class=new Trips_class();
+                                                trips_class.setName(user.name);
+                                                trips_class.setCar(trips.cars.getCarTyps());
+                                                trips_class.setDriver_id(key);
+                                                trips_class.setTrip_id(trips.getTrip_id());
+                                                tripsList.add(trips_class);
+                                                adapter.notifyDataSetChanged();
+                                                adapter.setNumberOfPassenger(trips.getpNumber());
+                                                adapter.notifyDataSetChanged();
                                             }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                            }
-                                        });
-
-                                        adapter.notifyDataSetChanged();
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                     }
-
+                                }) ;
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
 
                         }
-                    }) ;
+                    });
                 }
-
-
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+    }
+    public static boolean  active=false;
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        active=true;
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        active=false;
 
+    }
 }
 

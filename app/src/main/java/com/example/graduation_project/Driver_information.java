@@ -1,17 +1,14 @@
 package com.example.graduation_project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,8 +36,8 @@ public class Driver_information extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if(dataSnapshot.exists()){
                         User user=dataSnapshot.getValue(User.class);
-                        name.setText(user.name);
-                        phone.setText(user.phone);
+                        name.setText("Name: "+user.name);
+                        phone.setText("Phone Number: "+user.phone);
                         FirebaseDatabase.getInstance().
                                 getReference("Users")
                                 .child(id).child("Trips")
@@ -49,9 +46,9 @@ public class Driver_information extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 Trips trips=dataSnapshot.getValue(Trips.class);
                                 Cars cars=trips.cars;
-                                car_color.setText(cars.carCollor);
-                                car_number.setText(cars.carPlate);
-                                car_type.setText(cars.carTyps);
+                                car_color.setText("Car Collor: "+cars.carCollor);
+                                car_number.setText("Car Plate Number: "+cars.carPlate);
+                                car_type.setText("Car Type: "+cars.carTyps);
                             }
 
                             @Override
@@ -70,14 +67,26 @@ public class Driver_information extends AppCompatActivity {
             });
         }
     }
-    public void Call (View view){
-        Intent Call =new Intent(Intent.ACTION_CALL);
-        Call.setData(Uri.parse("tel:9961907453"));
-        if (ActivityCompat.checkSelfPermission(Driver_information.this,
-                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        startActivity(Call);
+    public void dial(View V) {
+        EditText ed = (EditText) findViewById(R.id.phoneNumInp);
+        String num = "tel:" + ed.getText().toString();
+        Intent ite = new Intent(Intent.ACTION_DIAL, Uri.parse(num));
+        startActivity(ite);
+
+    }
+
+    public void sendSMS(View V) {
+        EditText ed = (EditText) findViewById(R.id.phoneNumInp);
+        String url = "smsto:" + ed.getText().toString();
+        Uri uri = Uri.parse(url);
+        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+        startActivity(it);
+
+    }
+    public void cost(View V) {;
+        Intent i=new Intent(this,Cost_calculation.class);
+        startActivity(i);
+
     }
 
 }
